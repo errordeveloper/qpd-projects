@@ -1,7 +1,4 @@
-# -------------------------------------------------
-# Project created by QtCreator 2009-11-18T03:28:14
-# -------------------------------------------------
-QT += network qwt
+QT += network
 TARGET = $$system(basename $$_PRO_FILE_PWD_)
 TEMPLATE = app
 

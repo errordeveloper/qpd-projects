@@ -1,5 +1,7 @@
 QT += network
-TARGET = $$system(basename $$_PRO_FILE_PWD_)
+
+TARGET = $$system(cat new_project)
+
 TEMPLATE = app
 
 SOURCES += main.cpp mainwindow.cpp

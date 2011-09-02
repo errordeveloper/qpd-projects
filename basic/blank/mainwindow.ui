@@ -35,7 +35,7 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="qpd_SockWidg" name="_qpd_SockWidg">
+   <widget class="qpd_basic" name="_qpd_basic">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -100,9 +100,9 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>qpd_SockWidg</class>
+   <class>qpd_basic</class>
    <extends>QWidget</extends>
-   <header>qpd_sockwidg.h</header>
+   <header>qpd_basic.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
@@ -110,7 +110,7 @@
   <connection>
    <sender>qpd_MainWindow</sender>
    <signal>_qpd_new(QString)</signal>
-   <receiver>_qpd_SockWidg</receiver>
+   <receiver>_qpd_basic</receiver>
    <slot>qpd_tcp_w(QString)</slot>
    <hints>
     <hint type="sourcelabel">

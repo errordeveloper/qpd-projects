@@ -1,4 +1,5 @@
-## I need to investigate what's the best way to do it using QT plugins ...
+## I need to investigate what is the best way to do it using QT plugins ...
+
 TEMPLATE = app
 
 QT += network
@@ -15,6 +16,7 @@ CONFIG += release debug build_all
 ## However, this seems more intellegent:
 _PRO_FILE_BASENAME_ = $$system(basename $$basename(_PRO_FILE_) .pro)
 equals(TARGET, $$_PRO_FILE_BASENAME_):TARGET=$$basename(_PRO_FILE_PWD_)
+
 ## And now drop the .git bit if it's there ...
 ## well, it will become what it was but still it's based on the
 ## name of thee dirctory and not the project file!
@@ -31,12 +33,21 @@ HEADERS += mainwindow.h
 
 FORMS += mainwindow.ui
 
-LIBS += -L$$PWD/../qpd.git/qpd_SockWidg_QtDesigner/
+PLUGIN_SOURCE = $$PWD../widgets/
+SELECT_PLUGIN = basic
+
+PDIR = $$PLUGIN_SOURCE/$$SELECT_PLUGIN
+
+LIBS += -L$$PDIR
 LIBS += -L$$[QT_INSTALL_PLUGINS]/designer/
-LIBS += -lqpd_SockWidgPlugin
 
-DEPENDPATH += $$PWD/../qpd.git/qpd_SockWidg_QtDesigner
+LIBS += -lqpd_$$SELECT_PLUGIN
 
-INCLUDEPATH += $$PWD/../qpd.git/qpd_SockWidg_QtDesigner
+DEPENDPATH += $$PDIR
 
-INCLUDEPATH += $$[QT_INSTALL_PLUGINS]/designer/libqpd_SockWidgPlugin.src/
+INCLUDEPATH += $$PDIR
+
+INCLUDEPATH += $$[QT_INSTALL_PLUGINS]/designer/libqpd_basic_plugin.src/
+
+## Or it should it's gonna be this instead:
+# INCLUDEPATH += $$[QT_INSTALL_PLUGINS]/designer/libqpd_basic_plugin.src/

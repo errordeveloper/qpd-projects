@@ -33,7 +33,7 @@ HEADERS += mainwindow.h
 
 FORMS += mainwindow.ui
 
-PLUGIN_SOURCE = $$PWD../widgets/
+PLUGIN_SOURCE = $$PWD/../../../widgets/
 SELECT_PLUGIN = basic
 
 PDIR = $$PLUGIN_SOURCE/$$SELECT_PLUGIN
